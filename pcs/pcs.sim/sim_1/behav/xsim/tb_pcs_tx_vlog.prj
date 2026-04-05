@@ -1,0 +1,19 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../pcs.srcs/sources_1/new/gmii_if.sv" \
+"../../../../pcs.srcs/sources_1/new/pcs_types_pkg.sv" \
+"../../../../pcs.srcs/sources_1/new/pcs_1000base_t_top.sv" \
+"../../../../pcs.srcs/sources_1/new/pcs_sign_reversal.sv" \
+"../../../../pcs.srcs/sources_1/new/pcs_symbol_mapper.sv" \
+"../../../../pcs.srcs/sources_1/new/pcs_transmit_fsm.sv" \
+"../../../../pcs.srcs/sources_1/new/pcs_tx_block.sv" \
+"../../../../pcs.srcs/sources_1/new/pcs_tx_enable_fsm.sv" \
+"../../../../pcs.srcs/sources_1/new/pcs_tx_scrambler.sv" \
+"../../../../pcs.srcs/sources_1/new/pma_if.sv" \
+"../../../../pcs.srcs/sim_1/new/tb_pcs_tx.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

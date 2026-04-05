@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sun Apr  5 13:09:52 2026
+# Process ID: 7856
+# Current directory: E:/Vivado Projects/pcs/pcs.runs/synth_1
+# Command line: vivado.exe -log pcs_tx_block.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pcs_tx_block.tcl
+# Log file: E:/Vivado Projects/pcs/pcs.runs/synth_1/pcs_tx_block.vds
+# Journal file: E:/Vivado Projects/pcs/pcs.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source pcs_tx_block.tcl -notrace

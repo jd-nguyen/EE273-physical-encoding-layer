@@ -14,7 +14,7 @@ import pcs_types_pkg::*;
     input logic        is_esd2_ext_0,
     input logic        is_esd2_ext_1,
     input logic        is_esd2_ext_2,
-    input logic        is_esd2_ext_err,
+    input logic        is_esd_ext_err,
     input logic        is_idle,
     input logic        is_carrier_extension,
     
@@ -27,55 +27,55 @@ import pcs_types_pkg::*;
 
         // Control Symbol Overrides (Highest Priority)
         if (is_xmt_err) begin // xmt_err
-            case (sdn[6:8])
+            case (sdn[8:6])
                 3'b000: begin t_symb.A = 0;  t_symb.B = +2; t_symb.C = +2; t_symb.D = 0; end	
                 3'b010: begin t_symb.A = +1;  t_symb.B = +1; t_symb.C = +2; t_symb.D = +2; end	
-                3'b100: begin t_symb.A = +2;  t_symb.B = +1; t_symb.C = +1; t_symb.D = +2; end	
-                3'b110: begin t_symb.A = +2;  t_symb.B = +1; t_symb.C = +2; t_symb.D = +1; end
+                3'b001: begin t_symb.A = +2;  t_symb.B = +1; t_symb.C = +1; t_symb.D = +2; end	
+                3'b011: begin t_symb.A = +2;  t_symb.B = +1; t_symb.C = +2; t_symb.D = +1; end
 
-                3'b001: begin t_symb.A = +2;  t_symb.B = +2; t_symb.C = 0; t_symb.D = +1; end	
-                3'b011: begin t_symb.A = 0;  t_symb.B = +2; t_symb.C = +1; t_symb.D = +2; end	
+                3'b100: begin t_symb.A = +2;  t_symb.B = +2; t_symb.C = 0; t_symb.D = +1; end	
+                3'b110: begin t_symb.A = 0;  t_symb.B = +2; t_symb.C = +1; t_symb.D = +2; end	
                 3'b101: begin t_symb.A = +1;  t_symb.B = +2; t_symb.C = +2; t_symb.D = 0; end	
                 3'b111: begin t_symb.A = +2;  t_symb.B = +1; t_symb.C = +2; t_symb.D = 0; end
 
             endcase
         end
         else if (is_csextend_err) begin // CSExtend_Err
-            case (sdn[6:8])
+            case (sdn[8:6])
                 3'b000: begin t_symb.A = -2;  t_symb.B = +2; t_symb.C = +2; t_symb.D = -2; end
                 3'b010: begin t_symb.A = -1;  t_symb.B = -1; t_symb.C = +2; t_symb.D = +2; end	
-                3'b100: begin t_symb.A = +2;  t_symb.B = -1; t_symb.C = -1; t_symb.D = +2; end	
-                3'b110: begin t_symb.A = +2;  t_symb.B = -1; t_symb.C = +2; t_symb.D = -1; end
+                3'b001: begin t_symb.A = +2;  t_symb.B = -1; t_symb.C = -1; t_symb.D = +2; end	
+                3'b011: begin t_symb.A = +2;  t_symb.B = -1; t_symb.C = +2; t_symb.D = -1; end
                 
-                3'b001: begin t_symb.A = +2;  t_symb.B = +2; t_symb.C = -2; t_symb.D = -1; end	
-                3'b011: begin t_symb.A = -2;  t_symb.B = +2; t_symb.C = -1; t_symb.D = +2; end	
+                3'b100: begin t_symb.A = +2;  t_symb.B = +2; t_symb.C = -2; t_symb.D = -1; end	
+                3'b100: begin t_symb.A = -2;  t_symb.B = +2; t_symb.C = -1; t_symb.D = +2; end	
                 3'b101: begin t_symb.A = -1;  t_symb.B = +2; t_symb.C = +2; t_symb.D = -2; end	
                 3'b111: begin t_symb.A = +2;  t_symb.B = -1; t_symb.C = +2; t_symb.D = -2; end
 
             endcase
         end
         else if (is_csextend) begin // CSExtend
-            case (sdn[6:8])
+            case (sdn[8:6])
                 3'b000: begin t_symb.A = +2;  t_symb.B = 0; t_symb.C = 0; t_symb.D = +2; end	
                 3'b010: begin t_symb.A = +2;  t_symb.B = +2; t_symb.C = +1; t_symb.D = +1; end	
-                3'b100: begin t_symb.A = +1;  t_symb.B = +2; t_symb.C = +2; t_symb.D = +1; end	
-                3'b110: begin t_symb.A = +1;  t_symb.B = +2; t_symb.C = +1; t_symb.D = +2; end
+                3'b001: begin t_symb.A = +1;  t_symb.B = +2; t_symb.C = +2; t_symb.D = +1; end	
+                3'b011: begin t_symb.A = +1;  t_symb.B = +2; t_symb.C = +1; t_symb.D = +2; end
                 
-                3'b001: begin t_symb.A = +2;  t_symb.B = 0; t_symb.C = +2; t_symb.D = +1; end	
-                3'b011: begin t_symb.A = +2;  t_symb.B = 0; t_symb.C = +1; t_symb.D = +2; end	
+                3'b100: begin t_symb.A = +2;  t_symb.B = 0; t_symb.C = +2; t_symb.D = +1; end	
+                3'b110: begin t_symb.A = +2;  t_symb.B = 0; t_symb.C = +1; t_symb.D = +2; end	
                 3'b101: begin t_symb.A = +1;  t_symb.B = 0; t_symb.C = +2; t_symb.D = +2; end	
                 3'b111: begin t_symb.A = +2;  t_symb.B = +1; t_symb.C = 0; t_symb.D = +2; end
             endcase
         end
         else if(is_csreset) begin // CSReset
-            case (sdn[6:8])
+            case (sdn[8:6])
                 3'b000: begin t_symb.A = +2;  t_symb.B = -2; t_symb.C = -2; t_symb.D = +2; end
                 3'b010: begin t_symb.A = +2;  t_symb.B = +2; t_symb.C = -1; t_symb.D = -1; end
-                3'b100: begin t_symb.A = -1;  t_symb.B = +2; t_symb.C = +2; t_symb.D = -1; end
-                3'b110: begin t_symb.A = -1;  t_symb.B = +2; t_symb.C = -1; t_symb.D = +2; end
+                3'b001: begin t_symb.A = -1;  t_symb.B = +2; t_symb.C = +2; t_symb.D = -1; end
+                3'b011: begin t_symb.A = -1;  t_symb.B = +2; t_symb.C = -1; t_symb.D = +2; end
 
-                3'b001: begin t_symb.A = +2;  t_symb.B = -2; t_symb.C = +2; t_symb.D = -1; end	
-                3'b011: begin t_symb.A = +2;  t_symb.B = -2; t_symb.C = -1; t_symb.D = +2; end	
+                3'b100: begin t_symb.A = +2;  t_symb.B = -2; t_symb.C = +2; t_symb.D = -1; end	
+                3'b110: begin t_symb.A = +2;  t_symb.B = -2; t_symb.C = -1; t_symb.D = +2; end	
                 3'b101: begin t_symb.A = -1;  t_symb.B = -2; t_symb.C = +2; t_symb.D = +2; end	
                 3'b111: begin t_symb.A = +2;  t_symb.B = -1; t_symb.C = -2; t_symb.D = +2; end
             endcase
@@ -98,13 +98,13 @@ import pcs_types_pkg::*;
         else if (is_esd2_ext_2) begin // ESD2_Ext_2
             t_symb.A = +2;  t_symb.B = -2; t_symb.C = +2; t_symb.D = +2;
         end
-        else if (is_esd2_ext_err) begin // ESD2_Ext_Err
+        else if (is_esd_ext_err) begin // ESD2_Ext_Err
             t_symb.A = -2;  t_symb.B = +2; t_symb.C = +2; t_symb.D = +2;
         end
         
         // 2. Normal Data Mapping (Fallback)
         else begin // first split by Sd_n[6:8]
-            case (sdn[6:8])
+            case (sdn[8:6])
                 3'b000: begin // then decode Sd_n[5:0]
                     case (sdn[5:0])
                         6'b000000: begin t_symb.A = 0;  t_symb.B = 0; t_symb.C = 0; t_symb.D = 0; end
@@ -244,7 +244,7 @@ import pcs_types_pkg::*;
                     endcase
                 end
                 
-                3'b100: begin
+                3'b001: begin
                     case (sdn[5:0])
                         6'b000000: begin t_symb.A = 0;  t_symb.B = +1; t_symb.C = +1; t_symb.D = 0; end
                         6'b000001: begin t_symb.A = -2;  t_symb.B = +1; t_symb.C = +1; t_symb.D = 0; end
@@ -314,7 +314,7 @@ import pcs_types_pkg::*;
                     endcase
                 end
                 
-                3'b110: begin
+                3'b011: begin
                     case (sdn[5:0])
                         6'b000000: begin t_symb.A = 0;  t_symb.B = +1; t_symb.C = 0; t_symb.D = +1; end
                         6'b000001: begin t_symb.A = -2;  t_symb.B = +1; t_symb.C = 0; t_symb.D = +1; end
@@ -384,7 +384,7 @@ import pcs_types_pkg::*;
                     endcase
                 end 
                 
-                3'b001: begin
+                3'b100: begin
                     case (sdn[5:0])
                         6'b000000: begin t_symb.A = 0;  t_symb.B = 0; t_symb.C = 0; t_symb.D = +1; end
                         6'b000001: begin t_symb.A = -2;  t_symb.B = 0; t_symb.C = 0; t_symb.D = +1; end
@@ -454,7 +454,7 @@ import pcs_types_pkg::*;
                     endcase
                 end
                 
-                3'b011: begin
+                3'b110: begin
                     case (sdn[5:0])
                         6'b000000: begin t_symb.A = 0;  t_symb.B = 0; t_symb.C = +1; t_symb.D = 0; end
                         6'b000001: begin t_symb.A = -2;  t_symb.B = 0; t_symb.C = +1; t_symb.D = 0; end

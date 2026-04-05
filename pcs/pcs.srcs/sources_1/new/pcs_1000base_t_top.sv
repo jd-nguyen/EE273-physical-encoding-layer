@@ -1,6 +1,8 @@
 `timescale 1ns / 1ps
+
 module pcs_1000base_t_top (
     input logic reset_n, // Hardware reset (pcs_reset = ON when low)
+    input logic pcs_reset, // Software reset (Management entity request)
     
     // Interface ports
     gmii_if.dut gmii,
@@ -8,11 +10,13 @@ module pcs_1000base_t_top (
 );
     import pcs_types_pkg::*;
 
-    // Internal routing signals (Phase 5/6 integration)
-    logic tx_enable;
-    logic tx_error;
+    // Internal routing flags
     logic _1000BTtransmit;
-    logic _1000BTreceive;
+    logic _1000BTreceive; 
+    
+    // Tie off the receive flag for now since we haven't built the RX path
+    assign _1000BTreceive = 1'b0;
+ 
 
     // =========================================================================
     // Next: sub-module Instantiations. First, use simplified version of scrambler, can implement full side-stream scrambler later
@@ -20,17 +24,33 @@ module pcs_1000base_t_top (
 
     // Phase 2 & 3: PCS Transmit Function
     // Includes Side-stream Scrambler, Data Enable, and Symbol Encoder
-    /*
-    pcs_transmit_block u_pcs_tx (
-        .clk             (gmii.gtx_clk),
+    
+    pcs_tx_block u_pcs_tx (
+        .clk             (gmii.gtx_clk), 
         .reset_n         (reset_n),
-        .gmii            (gmii),
-        .pma             (pma),
-        .tx_enable_out   (tx_enable),
-        .tx_error_out    (tx_error),
-        ._1000BTtransmit (_1000BTtransmit)
+        .pcs_reset       (pcs_reset),     // <--- Now correctly connected
+        
+        // Configuration from PMA interface
+        .config_mode     (pma.m_s_config),
+        .tx_mode         (pma.tx_mode),
+        .link_status_ok  (pma.link_status),
+        
+        // Data and Control from GMII interface
+        .tx_en           (gmii.tx_en),
+        .tx_er           (gmii.tx_er),
+        .txd             (gmii.txd),
+        
+        // Cross-domain and Optional signals
+        ._1000BTreceive  (_1000BTreceive),
+        .loc_lpi_req     (pma.loc_lpi_req),     
+        .loc_update_done (pma.loc_update_done), 
+        
+        // Outputs driving the interfaces
+        .tx_symb_vector  (pma.tx_symb_vector),
+        ._1000BTtransmit (_1000BTtransmit),
+        .col             (gmii.col)
     );
-    */
+    
 
     // Phase 4: PCS Receive Function
     // Includes Symbol Decoder, Descrambler, and Receive State Machine

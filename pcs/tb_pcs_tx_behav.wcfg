@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_pcs_tx_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="pcs_types_pkg" />
+            <top_module name="tb_pcs_tx" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="232.001 ns"></ZoomEndTime>
+      <Cursor1Time time="180.749 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="277"></NameColumnWidth>
+      <ValueColumnWidth column_width="135"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="28" />
+   <wvobject fp_name="/tb_pcs_tx/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/reset_n" type="logic">
+      <obj_property name="ElementShortName">reset_n</obj_property>
+      <obj_property name="ObjectShortName">reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pcs_reset" type="logic">
+      <obj_property name="ElementShortName">pcs_reset</obj_property>
+      <obj_property name="ObjectShortName">pcs_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/gmii/gtx_clk" type="logic">
+      <obj_property name="ElementShortName">gtx_clk</obj_property>
+      <obj_property name="ObjectShortName">gtx_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/gmii/rx_clk" type="logic">
+      <obj_property name="ElementShortName">rx_clk</obj_property>
+      <obj_property name="ObjectShortName">rx_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/gmii/txd" type="array">
+      <obj_property name="ElementShortName">txd[7:0]</obj_property>
+      <obj_property name="ObjectShortName">txd[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/gmii/tx_en" type="logic">
+      <obj_property name="ElementShortName">tx_en</obj_property>
+      <obj_property name="ObjectShortName">tx_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/gmii/tx_er" type="logic">
+      <obj_property name="ElementShortName">tx_er</obj_property>
+      <obj_property name="ObjectShortName">tx_er</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/gmii/rxd" type="array">
+      <obj_property name="ElementShortName">rxd[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rxd[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/gmii/rx_dv" type="logic">
+      <obj_property name="ElementShortName">rx_dv</obj_property>
+      <obj_property name="ObjectShortName">rx_dv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/gmii/rx_er" type="logic">
+      <obj_property name="ElementShortName">rx_er</obj_property>
+      <obj_property name="ObjectShortName">rx_er</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/gmii/col" type="logic">
+      <obj_property name="ElementShortName">col</obj_property>
+      <obj_property name="ObjectShortName">col</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/gmii/crs" type="logic">
+      <obj_property name="ElementShortName">crs</obj_property>
+      <obj_property name="ObjectShortName">crs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/symb_clk" type="logic">
+      <obj_property name="ElementShortName">symb_clk</obj_property>
+      <obj_property name="ObjectShortName">symb_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/tx_symb_vector" type="array">
+      <obj_property name="ElementShortName">tx_symb_vector</obj_property>
+      <obj_property name="ObjectShortName">tx_symb_vector</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/rx_symb_vector" type="array">
+      <obj_property name="ElementShortName">rx_symb_vector</obj_property>
+      <obj_property name="ObjectShortName">rx_symb_vector</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/m_s_config" type="other">
+      <obj_property name="ElementShortName">m_s_config</obj_property>
+      <obj_property name="ObjectShortName">m_s_config</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/tx_mode" type="array">
+      <obj_property name="ElementShortName">tx_mode[1:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_mode[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/link_status" type="logic">
+      <obj_property name="ElementShortName">link_status</obj_property>
+      <obj_property name="ObjectShortName">link_status</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/loc_rcvr_status" type="logic">
+      <obj_property name="ElementShortName">loc_rcvr_status</obj_property>
+      <obj_property name="ObjectShortName">loc_rcvr_status</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/rem_rcvr_status" type="logic">
+      <obj_property name="ElementShortName">rem_rcvr_status</obj_property>
+      <obj_property name="ObjectShortName">rem_rcvr_status</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/scr_status" type="logic">
+      <obj_property name="ElementShortName">scr_status</obj_property>
+      <obj_property name="ObjectShortName">scr_status</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/loc_update_done" type="logic">
+      <obj_property name="ElementShortName">loc_update_done</obj_property>
+      <obj_property name="ObjectShortName">loc_update_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/rem_update_done" type="logic">
+      <obj_property name="ElementShortName">rem_update_done</obj_property>
+      <obj_property name="ObjectShortName">rem_update_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/loc_lpi_req" type="logic">
+      <obj_property name="ElementShortName">loc_lpi_req</obj_property>
+      <obj_property name="ObjectShortName">loc_lpi_req</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/rem_lpi_req" type="logic">
+      <obj_property name="ElementShortName">rem_lpi_req</obj_property>
+      <obj_property name="ObjectShortName">rem_lpi_req</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/pma/lpi_mode" type="logic">
+      <obj_property name="ElementShortName">lpi_mode</obj_property>
+      <obj_property name="ObjectShortName">lpi_mode</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_pcs_tx/dut/u_pcs_tx/u_transmit_fsm/current_state" type="array">
+      <obj_property name="ElementShortName">current_state[4:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[4:0]</obj_property>
+   </wvobject>
+</wave_config>
