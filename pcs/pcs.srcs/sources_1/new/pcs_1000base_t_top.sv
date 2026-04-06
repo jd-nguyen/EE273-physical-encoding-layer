@@ -22,13 +22,13 @@ module pcs_1000base_t_top (
     // Next: sub-module Instantiations. First, use simplified version of scrambler, can implement full side-stream scrambler later
     // =========================================================================
 
-    // Phase 2 & 3: PCS Transmit Function
+    // PCS Transmit Function
     // Includes Side-stream Scrambler, Data Enable, and Symbol Encoder
     
     pcs_tx_block u_pcs_tx (
         .clk             (gmii.gtx_clk), 
         .reset_n         (reset_n),
-        .pcs_reset       (pcs_reset),     // <--- Now correctly connected
+        .pcs_reset       (pcs_reset),
         
         // Configuration from PMA interface
         .config_mode     (pma.m_s_config),

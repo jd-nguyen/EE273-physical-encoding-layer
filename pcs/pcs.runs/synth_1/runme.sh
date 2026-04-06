@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log pcs_tx_block.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source pcs_tx_block.tcl
+EAStep vivado -log pcs_1000base_t_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source pcs_1000base_t_top.tcl

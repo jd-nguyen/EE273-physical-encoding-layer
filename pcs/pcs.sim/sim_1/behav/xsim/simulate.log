@@ -1,9 +1,12 @@
 Time resolution is 1 ps
 Starting 1000BASE-T PCS TX Simulation...
-Time: 0 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C: 0, D: 0)
+Time: 0 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C: 0, D: 0)
+Time: 20000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C: 0, D: 0)
 Bringing Link UP...
+Time: 44000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B:-2, C: 0, D: 0)
+Time: 68000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B:-2, C:-2, D: 0)
 Asserting TX_EN. Sending dummy frame...
-Time: 84000 | TX_EN: 1 | TXD: 55 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C: 0, D: 0)
+Time: 84000 | TX_EN: 1 | TXD: 55 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C:-2, D: 0)
 Time: 92000 | TX_EN: 1 | TXD: d5 || TX FSM State: ST_SSD1 | Out Symb: (A: 2, B: 2, C: 2, D: 2)
 Time: 100000 | TX_EN: 1 | TXD: de || TX FSM State: ST_SSD2 | Out Symb: (A: 2, B: 2, C: 2, D:-2)
 Time: 108000 | TX_EN: 1 | TXD: ad || TX FSM State: ST_TX_DATA | Out Symb: (A: 2, B:-1, C: 0, D: 0)
@@ -17,16 +20,19 @@ Time: 156000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_ESD1 | Out Symb: (A: 2, B:
 Time: 164000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_ESD2_EXT_0 | Out Symb: (A: 2, B: 2, C: 2, D:-2)
 Time: 172000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B:-2, C:-2, D:-2)
 Time: 188000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D:-2)
-Time: 196000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C: 0, D: 0)
+Time: 196000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D: 0)
 Time: 212000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D:-2)
 Time: 228000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C:-2, D:-2)
 Simulation Complete.
-$finish called at time : 232 ns : File "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_tx.sv" Line 109
+$finish called at time : 232 ns : File "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_tx.sv" Line 112
 Starting 1000BASE-T PCS TX Simulation...
-Time: 0 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C: 0, D: 0)
+Time: 0 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C: 0, D: 0)
+Time: 20000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C: 0, D: 0)
 Bringing Link UP...
+Time: 44000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B:-2, C: 0, D: 0)
+Time: 68000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B:-2, C:-2, D: 0)
 Asserting TX_EN. Sending dummy frame...
-Time: 84000 | TX_EN: 1 | TXD: 55 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C: 0, D: 0)
+Time: 84000 | TX_EN: 1 | TXD: 55 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C:-2, D: 0)
 Time: 92000 | TX_EN: 1 | TXD: d5 || TX FSM State: ST_SSD1 | Out Symb: (A: 2, B: 2, C: 2, D: 2)
 Time: 100000 | TX_EN: 1 | TXD: de || TX FSM State: ST_SSD2 | Out Symb: (A: 2, B: 2, C: 2, D:-2)
 Time: 108000 | TX_EN: 1 | TXD: ad || TX FSM State: ST_TX_DATA | Out Symb: (A: 2, B:-1, C: 0, D: 0)
@@ -40,8 +46,8 @@ Time: 156000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_ESD1 | Out Symb: (A: 2, B:
 Time: 164000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_ESD2_EXT_0 | Out Symb: (A: 2, B: 2, C: 2, D:-2)
 Time: 172000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B:-2, C:-2, D:-2)
 Time: 188000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D:-2)
-Time: 196000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C: 0, D: 0)
+Time: 196000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D: 0)
 Time: 212000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D:-2)
 Time: 228000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C:-2, D:-2)
 Simulation Complete.
-$finish called at time : 232 ns : File "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_tx.sv" Line 109
+$finish called at time : 232 ns : File "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_tx.sv" Line 112

@@ -56,6 +56,9 @@ module tb_pcs_tx;
         pma.tx_mode     = SEND_N;    // Normal data mode
         pma.link_status = 0;         // Link down initially
         
+        pma.loc_lpi_req     = 1'b0;  // EEE not requested
+        pma.loc_update_done = 1'b1;  // Training updates complete
+        
         // Setup GMII Inputs
         gmii.tx_en      = 0;
         gmii.tx_er      = 0;

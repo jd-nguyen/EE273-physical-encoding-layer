@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1775419789">
-  <File Type="PA-TCL" Name="pcs_tx_block.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="pcs_tx_block_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="pcs_tx_block_reports.tcl"/>
-  <File Type="RDS-RDS" Name="pcs_tx_block.vds"/>
-  <File Type="RDS-UTIL" Name="pcs_tx_block_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="pcs_tx_block_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="pcs_tx_block.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="pcs_tx_block_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="pcs_tx_block_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1775427355">
+  <File Type="PA-TCL" Name="pcs_1000base_t_top.tcl"/>
+  <File Type="REPORTS-TCL" Name="pcs_1000base_t_top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="pcs_1000base_t_top.vds"/>
+  <File Type="RDS-DCP" Name="pcs_1000base_t_top.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/gmii_if.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/pcs_types_pkg.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -39,6 +41,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/pcs_tx_block.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/pcs_tx_enable_fsm.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -53,24 +62,8 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/pcs_tx_block.sv">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/gmii_if.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/pma_if.sv">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -78,7 +71,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/pcs_1000base_t_top.sv">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -94,8 +86,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="pcs_tx_block"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="pcs_1000base_t_top"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
