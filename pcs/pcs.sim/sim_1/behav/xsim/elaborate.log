@@ -1,44 +1,9 @@
 Vivado Simulator v2021.1
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: E:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto aef9dc52dd5f4ff182b9e1c974d622a5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_pcs_tx_behav xil_defaultlib.tb_pcs_tx xil_defaultlib.glbl -log elaborate.log 
+Running: E:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto aef9dc52dd5f4ff182b9e1c974d622a5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_pcs_loopback_behav xil_defaultlib.tb_pcs_loopback xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 WARNING: [VRFC 10-5021] port 'is_idle' is not connected on this instance [E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_block.sv:183]
 Completed static elaboration
-Starting simulation data flow analysis
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_tx.sv" Line 3. Module tb_pcs_tx has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pma_if.sv" Line 1. Module pma_if has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_1000base_t_top.sv" Line 3. Module pcs_1000base_t_top has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_block.sv" Line 3. Module pcs_tx_block has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_scrambler.sv" Line 3. Module pcs_tx_scrambler has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_enable_fsm.sv" Line 5. Module pcs_tx_enable_fsm has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_transmit_fsm.sv" Line 3. Module pcs_transmit_fsm has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_symbol_mapper.sv" Line 1. Module pcs_symbol_mapper has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_sign_reversal.sv" Line 3. Module pcs_sign_reversal has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_tx.sv" Line 3. Module tb_pcs_tx has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pma_if.sv" Line 1. Module pma_if has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_1000base_t_top.sv" Line 3. Module pcs_1000base_t_top has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_block.sv" Line 3. Module pcs_tx_block has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_scrambler.sv" Line 3. Module pcs_tx_scrambler has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_enable_fsm.sv" Line 5. Module pcs_tx_enable_fsm has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_transmit_fsm.sv" Line 3. Module pcs_transmit_fsm has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_symbol_mapper.sv" Line 1. Module pcs_symbol_mapper has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_sign_reversal.sv" Line 3. Module pcs_sign_reversal has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package xil_defaultlib.pcs_types_pkg
-Compiling module xil_defaultlib.gmii_if
-Compiling module xil_defaultlib.pma_if
-Compiling module xil_defaultlib.pcs_tx_scrambler
-Compiling module xil_defaultlib.pcs_tx_enable_fsm
-Compiling module xil_defaultlib.pcs_transmit_fsm
-Compiling module xil_defaultlib.pcs_symbol_mapper
-Compiling module xil_defaultlib.pcs_sign_reversal
-Compiling module xil_defaultlib.pcs_tx_block
-Compiling module xil_defaultlib.pcs_1000base_t_top
-Compiling module xil_defaultlib.tb_pcs_tx
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_pcs_tx_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

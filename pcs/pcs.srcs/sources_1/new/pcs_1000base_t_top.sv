@@ -14,9 +14,7 @@ module pcs_1000base_t_top (
     logic _1000BTtransmit;
     logic _1000BTreceive; 
     
-    // Tie off the receive flag for now since we haven't built the RX path
-    assign _1000BTreceive = 1'b0;
- 
+
 
     // =========================================================================
     // Next: sub-module Instantiations. First, use simplified version of scrambler, can implement full side-stream scrambler later
@@ -54,15 +52,30 @@ module pcs_1000base_t_top (
 
     // Phase 4: PCS Receive Function
     // Includes Symbol Decoder, Descrambler, and Receive State Machine
-    /*
-    pcs_receive_block u_pcs_rx (
-        .clk             (pma.symb_clk),
+    // =========================================================================
+    // Receive Path Instantiation (Phase 4)
+    // =========================================================================
+    pcs_rx_block u_pcs_rx (
+        .clk             (pma.symb_clk),  // Nominal 125 MHz recovered clock
         .reset_n         (reset_n),
-        .pma             (pma),
-        .gmii            (gmii),
+        .pcs_reset       (pcs_reset),
+        
+        // Configuration from PMA interface
+        .config_mode     (pma.m_s_config),
+        .link_status_ok  (pma.link_status),
+        
+        // Incoming Symbols from PMA interface
+        .rx_symb_vector  (pma.rx_symb_vector),
+        
+        // Decoded Data and Control driving the GMII interface
+        .rxd             (gmii.rxd),
+        .rx_dv           (gmii.rx_dv),
+        .rx_er           (gmii.rx_er),
+        
+        // Cross-domain output to Carrier Sense / TX FSM
         ._1000BTreceive  (_1000BTreceive)
     );
-    */
+    
 
     // Phase 5: Carrier Sense Function
     /*

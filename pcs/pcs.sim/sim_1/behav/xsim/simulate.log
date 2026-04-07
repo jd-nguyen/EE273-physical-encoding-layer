@@ -1,53 +1,33 @@
 Time resolution is 1 ps
-Starting 1000BASE-T PCS TX Simulation...
-Time: 0 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C: 0, D: 0)
-Time: 20000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C: 0, D: 0)
-Bringing Link UP...
-Time: 44000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B:-2, C: 0, D: 0)
-Time: 68000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B:-2, C:-2, D: 0)
-Asserting TX_EN. Sending dummy frame...
-Time: 84000 | TX_EN: 1 | TXD: 55 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C:-2, D: 0)
-Time: 92000 | TX_EN: 1 | TXD: d5 || TX FSM State: ST_SSD1 | Out Symb: (A: 2, B: 2, C: 2, D: 2)
-Time: 100000 | TX_EN: 1 | TXD: de || TX FSM State: ST_SSD2 | Out Symb: (A: 2, B: 2, C: 2, D:-2)
-Time: 108000 | TX_EN: 1 | TXD: ad || TX FSM State: ST_TX_DATA | Out Symb: (A: 2, B:-1, C: 0, D: 0)
-Time: 116000 | TX_EN: 1 | TXD: be || TX FSM State: ST_TX_DATA | Out Symb: (A: 1, B:-1, C: 0, D: 1)
-De-asserting TX_EN. Triggering End-of-Stream...
-Time: 124000 | TX_EN: 1 | TXD: ef || TX FSM State: ST_TX_DATA | Out Symb: (A: 0, B:-1, C: 1, D: 0)
-Time: 132000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_TX_DATA | Out Symb: (A:-2, B: 1, C:-2, D: 0)
-Time: 140000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_CSRESET_1 | Out Symb: (A:-1, B:-2, C: 2, D: 2)
-Time: 148000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_CSRESET_2 | Out Symb: (A: 2, B:-2, C: 2, D:-1)
-Time: 156000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_ESD1 | Out Symb: (A: 2, B: 2, C: 2, D: 2)
-Time: 164000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_ESD2_EXT_0 | Out Symb: (A: 2, B: 2, C: 2, D:-2)
-Time: 172000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B:-2, C:-2, D:-2)
-Time: 188000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D:-2)
-Time: 196000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D: 0)
-Time: 212000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D:-2)
-Time: 228000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C:-2, D:-2)
-Simulation Complete.
-$finish called at time : 232 ns : File "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_tx.sv" Line 112
-Starting 1000BASE-T PCS TX Simulation...
-Time: 0 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C: 0, D: 0)
-Time: 20000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C: 0, D: 0)
-Bringing Link UP...
-Time: 44000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B:-2, C: 0, D: 0)
-Time: 68000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B:-2, C:-2, D: 0)
-Asserting TX_EN. Sending dummy frame...
-Time: 84000 | TX_EN: 1 | TXD: 55 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C:-2, D: 0)
-Time: 92000 | TX_EN: 1 | TXD: d5 || TX FSM State: ST_SSD1 | Out Symb: (A: 2, B: 2, C: 2, D: 2)
-Time: 100000 | TX_EN: 1 | TXD: de || TX FSM State: ST_SSD2 | Out Symb: (A: 2, B: 2, C: 2, D:-2)
-Time: 108000 | TX_EN: 1 | TXD: ad || TX FSM State: ST_TX_DATA | Out Symb: (A: 2, B:-1, C: 0, D: 0)
-Time: 116000 | TX_EN: 1 | TXD: be || TX FSM State: ST_TX_DATA | Out Symb: (A: 1, B:-1, C: 0, D: 1)
-De-asserting TX_EN. Triggering End-of-Stream...
-Time: 124000 | TX_EN: 1 | TXD: ef || TX FSM State: ST_TX_DATA | Out Symb: (A: 0, B:-1, C: 1, D: 0)
-Time: 132000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_TX_DATA | Out Symb: (A:-2, B: 1, C:-2, D: 0)
-Time: 140000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_CSRESET_1 | Out Symb: (A:-1, B:-2, C: 2, D: 2)
-Time: 148000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_CSRESET_2 | Out Symb: (A: 2, B:-2, C: 2, D:-1)
-Time: 156000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_ESD1 | Out Symb: (A: 2, B: 2, C: 2, D: 2)
-Time: 164000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_ESD2_EXT_0 | Out Symb: (A: 2, B: 2, C: 2, D:-2)
-Time: 172000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B:-2, C:-2, D:-2)
-Time: 188000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D:-2)
-Time: 196000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D: 0)
-Time: 212000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A:-2, B: 0, C:-2, D:-2)
-Time: 228000 | TX_EN: 0 | TXD: 00 || TX FSM State: ST_SEND_IDLE | Out Symb: (A: 0, B: 0, C:-2, D:-2)
-Simulation Complete.
-$finish called at time : 232 ns : File "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_tx.sv" Line 112
+Starting PCS Datapath Loopback Simulation...
+Transmitting GMII Frame...
+Error: DATA MISMATCH! Time: 164000 | Expected: 55 | Received: 05
+Time: 164 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Error: DATA MISMATCH! Time: 172000 | Expected: d5 | Received: cc
+Time: 172 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Error: DATA MISMATCH! Time: 180000 | Expected: dd | Received: bb
+Time: 180 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Error: DATA MISMATCH! Time: 188000 | Expected: cc | Received: aa
+Time: 188 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Error: DATA MISMATCH! Time: 196000 | Expected: bb | Received: 40
+Time: 196 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Error: DATA MISMATCH! Time: 204000 | Expected: aa | Received: 6f
+Time: 204 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Simulation Complete. Check waveform and console for mismatches.
+$finish called at time : 372 ns : File "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv" Line 148
+Starting PCS Datapath Loopback Simulation...
+Transmitting GMII Frame...
+Error: DATA MISMATCH! Time: 164000 | Expected: 55 | Received: 05
+Time: 164 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Error: DATA MISMATCH! Time: 172000 | Expected: d5 | Received: cc
+Time: 172 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Error: DATA MISMATCH! Time: 180000 | Expected: dd | Received: bb
+Time: 180 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Error: DATA MISMATCH! Time: 188000 | Expected: cc | Received: aa
+Time: 188 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Error: DATA MISMATCH! Time: 196000 | Expected: bb | Received: 40
+Time: 196 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Error: DATA MISMATCH! Time: 204000 | Expected: aa | Received: 6f
+Time: 204 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
+Simulation Complete. Check waveform and console for mismatches.
+$finish called at time : 372 ns : File "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv" Line 148
