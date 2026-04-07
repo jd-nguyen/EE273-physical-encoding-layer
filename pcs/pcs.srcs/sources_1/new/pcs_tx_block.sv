@@ -115,7 +115,7 @@ import pcs_types_pkg::*;
         
         // Lower bits include handling for LPI and receiver status if not transmitting data
         sd_n[3]   = (tx_en_n2) ? (sc_n[3] ^ txd[3]) : 
-                    ((loc_lpi_req && tx_mode != SEND_Z) ? 1'b1 : sc_n[3]);
+                    ((loc_lpi_req && tx_mode != SEND_Z) ? (sc_n[3] ^ 1'b1) : sc_n[3]);
         
         sd_n[2]   = (tx_en_n2) ? (sc_n[2] ^ txd[2]) : sc_n[2]; // Simplified loc_rcvr_status hook
         
