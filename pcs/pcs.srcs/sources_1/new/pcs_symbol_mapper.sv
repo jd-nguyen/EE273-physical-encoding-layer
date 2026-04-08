@@ -48,7 +48,7 @@ import pcs_types_pkg::*;
                 3'b011: begin t_symb.A = +2;  t_symb.B = -1; t_symb.C = +2; t_symb.D = -1; end
                 
                 3'b100: begin t_symb.A = +2;  t_symb.B = +2; t_symb.C = -2; t_symb.D = -1; end	
-                3'b100: begin t_symb.A = -2;  t_symb.B = +2; t_symb.C = -1; t_symb.D = +2; end	
+                3'b110: begin t_symb.A = -2;  t_symb.B = +2; t_symb.C = -1; t_symb.D = +2; end	
                 3'b101: begin t_symb.A = -1;  t_symb.B = +2; t_symb.C = +2; t_symb.D = -2; end	
                 3'b111: begin t_symb.A = +2;  t_symb.B = -1; t_symb.C = +2; t_symb.D = -2; end
 
