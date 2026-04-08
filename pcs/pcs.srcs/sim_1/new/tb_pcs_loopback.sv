@@ -132,10 +132,10 @@ module tb_pcs_loopback;
         @(posedge clk); gmii_txd = 8'hD5;
         
         // Payload Data
-        @(posedge clk); gmii_txd = 8'hDD;
-        @(posedge clk); gmii_txd = 8'hCC;
-        @(posedge clk); gmii_txd = 8'hBB;
         @(posedge clk); gmii_txd = 8'hAA;
+        @(posedge clk); gmii_txd = 8'hBB;
+        @(posedge clk); gmii_txd = 8'hCC;
+        @(posedge clk); gmii_txd = 8'hDD;
 
         
         // End of Stream / ESD
