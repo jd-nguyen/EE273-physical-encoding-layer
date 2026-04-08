@@ -124,21 +124,40 @@ module tb_pcs_loopback;
         reset_n = 1;
         #100; // Let IDLE symbols propagate and sync
 
-        // Transmit a Frame
+        // Transmit a Frame (Act like a real MAC)
         $display("Transmitting GMII Frame...");
         
-        // Preamble / SSD
-        @(posedge clk); gmii_tx_en = 1; gmii_txd = 8'h55;
-        @(posedge clk); gmii_txd = 8'hD5;
+        // Assert TX_EN and send 7 bytes of standard Preamble (0x55)
+        // The PCS will overwrite the first few with SSD symbols, 
+        // and the rest will pass through as scrambled data.
+        @(posedge clk); gmii_tx_en = 1; gmii_txd = 8'h55; // Eaten by IDLE->SSD1 transition
+        @(posedge clk); gmii_txd = 8'h55; // Replaced by SSD1
+        @(posedge clk); gmii_txd = 8'h55; // Replaced by SSD2
+        @(posedge clk); gmii_txd = 8'h55; // Passes through as data
+        @(posedge clk); gmii_txd = 8'h55; // Passes through as data
+        @(posedge clk); gmii_txd = 8'h55; // Passes through as data
+        @(posedge clk); gmii_txd = 8'h55; // Passes through as data
         
-        // Payload Data
+        // Send 1 byte of Start Frame Delimiter (SFD)
+        @(posedge clk); gmii_txd = 8'hD5; 
+        
+        // NOW send the payload
         @(posedge clk); gmii_txd = 8'hAA;
         @(posedge clk); gmii_txd = 8'hBB;
         @(posedge clk); gmii_txd = 8'hCC;
         @(posedge clk); gmii_txd = 8'hDD;
-
         
-        // End of Stream / ESD
+        @(posedge clk); gmii_txd = 8'hDD;
+        @(posedge clk); gmii_txd = 8'hEE;
+        @(posedge clk); gmii_txd = 8'hAA;
+        @(posedge clk); gmii_txd = 8'hDD;
+        
+        @(posedge clk); gmii_txd = 8'hBB;
+        @(posedge clk); gmii_txd = 8'hEE;
+        @(posedge clk); gmii_txd = 8'hEE;
+        @(posedge clk); gmii_txd = 8'hFF;
+        
+        // End of Frame
         @(posedge clk); gmii_tx_en = 0; gmii_txd = 8'h00;
 
         // Wait for pipeline to flush

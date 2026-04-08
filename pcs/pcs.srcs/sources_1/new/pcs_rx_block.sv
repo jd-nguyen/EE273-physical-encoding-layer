@@ -141,7 +141,7 @@ import pcs_types_pkg::*;
         .is_csreset_n    (is_csreset_n),
         
         // Delayed data for GMII alignment
-        .rxd_n2          (rxd_n2),
+        .rxd_n1          (rxd_n1),
         
         // Outputs
         .rx_dv           (rx_dv),

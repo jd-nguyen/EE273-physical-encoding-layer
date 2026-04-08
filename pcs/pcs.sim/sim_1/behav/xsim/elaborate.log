@@ -6,4 +6,50 @@ Starting static elaboration
 Pass Through NonSizing Optimizer
 WARNING: [VRFC 10-5021] port 'is_idle' is not connected on this instance [E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_block.sv:183]
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv" Line 3. Module tb_pcs_loopback has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_block.sv" Line 3. Module pcs_tx_block has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_scrambler.sv" Line 3. Module pcs_tx_scrambler has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_enable_fsm.sv" Line 5. Module pcs_tx_enable_fsm has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_transmit_fsm.sv" Line 3. Module pcs_transmit_fsm has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_symbol_mapper.sv" Line 1. Module pcs_symbol_mapper has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_sign_reversal.sv" Line 3. Module pcs_sign_reversal has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_rx_block.sv" Line 3. Module pcs_rx_block has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_rx_descrambler.sv" Line 3. Module pcs_rx_descrambler has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_rx_sign_decoder.sv" Line 3. Module pcs_rx_sign_decoder has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_rx_symbol_decoder.sv" Line 3. Module pcs_rx_symbol_decoder has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_rx_pipeline.sv" Line 3. Module pcs_rx_pipeline has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_receive_fsm.sv" Line 3. Module pcs_receive_fsm has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv" Line 3. Module tb_pcs_loopback has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_block.sv" Line 3. Module pcs_tx_block has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_scrambler.sv" Line 3. Module pcs_tx_scrambler has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_tx_enable_fsm.sv" Line 5. Module pcs_tx_enable_fsm has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_transmit_fsm.sv" Line 3. Module pcs_transmit_fsm has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_symbol_mapper.sv" Line 1. Module pcs_symbol_mapper has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_sign_reversal.sv" Line 3. Module pcs_sign_reversal has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_rx_block.sv" Line 3. Module pcs_rx_block has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_rx_descrambler.sv" Line 3. Module pcs_rx_descrambler has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_rx_sign_decoder.sv" Line 3. Module pcs_rx_sign_decoder has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_rx_symbol_decoder.sv" Line 3. Module pcs_rx_symbol_decoder has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_rx_pipeline.sv" Line 3. Module pcs_rx_pipeline has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.srcs/sources_1/new/pcs_receive_fsm.sv" Line 3. Module pcs_receive_fsm has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "E:/Vivado Projects/pcs/pcs.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.pcs_types_pkg
+Compiling module xil_defaultlib.pcs_tx_scrambler
+Compiling module xil_defaultlib.pcs_tx_enable_fsm
+Compiling module xil_defaultlib.pcs_transmit_fsm
+Compiling module xil_defaultlib.pcs_symbol_mapper
+Compiling module xil_defaultlib.pcs_sign_reversal
+Compiling module xil_defaultlib.pcs_tx_block
+Compiling module xil_defaultlib.pcs_rx_descrambler
+Compiling module xil_defaultlib.pcs_rx_sign_decoder
+Compiling module xil_defaultlib.pcs_rx_symbol_decoder
+Compiling module xil_defaultlib.pcs_rx_pipeline
+Compiling module xil_defaultlib.pcs_receive_fsm
+Compiling module xil_defaultlib.pcs_rx_block
+Compiling module xil_defaultlib.tb_pcs_loopback
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_pcs_loopback_behav

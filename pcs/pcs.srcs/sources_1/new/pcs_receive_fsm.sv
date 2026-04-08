@@ -18,7 +18,7 @@ module pcs_receive_fsm (
     input  logic       is_csreset_n,
     
     // Pipeline Inputs (Time 'n-1' and 'n-2' - Delayed data)
-    input  logic [7:0] rxd_n2,          // Descrambled data delayed by 2 clocks
+    input  logic [7:0] rxd_n1,          // Descrambled data delayed by 2 clocks
     
     // GMII Interface Outputs
     output logic       rx_dv,
@@ -152,7 +152,7 @@ module pcs_receive_fsm (
             ST_DATA: begin
                 rx_dv          = 1'b1;
                 rx_er          = 1'b0;
-                rxd            = rxd_n2; // Output the descrambled data from the pipeline
+                rxd            = rxd_n1; // Output the descrambled data from the pipeline
                 _1000BTreceive = 1'b1;
                 rx_srev_n      = 1'b1;
             end
@@ -160,7 +160,7 @@ module pcs_receive_fsm (
             ST_DATA_ERR: begin
                 rx_dv          = 1'b1;
                 rx_er          = 1'b1;   // Flag the error to the MAC
-                rxd            = rxd_n2;
+                rxd            = rxd_n1;
                 _1000BTreceive = 1'b1;
                 rx_srev_n      = 1'b1;
             end
