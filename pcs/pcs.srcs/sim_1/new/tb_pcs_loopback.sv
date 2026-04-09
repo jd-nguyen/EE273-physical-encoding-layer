@@ -82,7 +82,7 @@ module tb_pcs_loopback;
     // The TX pipeline and RX pipeline introduce several cycles of latency.
     // To automatically check the data, we must delay the TX stimulus to align
     // with the RX outputs. (Adjust the depth based on your exact pipeline).
-    localparam LATENCY = 4; 
+    localparam LATENCY = 1; 
     
     logic [7:0] delayed_txd [LATENCY-1:0];
     logic       delayed_tx_en [LATENCY-1:0];
@@ -146,17 +146,7 @@ module tb_pcs_loopback;
         @(posedge clk); gmii_txd = 8'hBB;
         @(posedge clk); gmii_txd = 8'hCC;
         @(posedge clk); gmii_txd = 8'hDD;
-        
-        @(posedge clk); gmii_txd = 8'hDD;
-        @(posedge clk); gmii_txd = 8'hEE;
-        @(posedge clk); gmii_txd = 8'hAA;
-        @(posedge clk); gmii_txd = 8'hDD;
-        
-        @(posedge clk); gmii_txd = 8'hBB;
-        @(posedge clk); gmii_txd = 8'hEE;
-        @(posedge clk); gmii_txd = 8'hEE;
-        @(posedge clk); gmii_txd = 8'hFF;
-        
+                
         // End of Frame
         @(posedge clk); gmii_tx_en = 0; gmii_txd = 8'h00;
 

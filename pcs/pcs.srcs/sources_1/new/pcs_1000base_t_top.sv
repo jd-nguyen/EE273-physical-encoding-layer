@@ -2,7 +2,7 @@
 
 module pcs_1000base_t_top (
     input logic reset_n, // Hardware reset (pcs_reset = ON when low)
-    input logic pcs_reset, // Software reset (Management entity request)
+    input logic sw_reset_req, // Software reset (Management entity request)
     
     // Interface ports
     gmii_if.dut gmii,
@@ -13,6 +13,7 @@ module pcs_1000base_t_top (
     // Internal routing flags
     logic _1000BTtransmit;
     logic _1000BTreceive; 
+    logic pcs_reset;
     
 
 
@@ -46,7 +47,8 @@ module pcs_1000base_t_top (
         // Outputs driving the interfaces
         .tx_symb_vector  (pma.tx_symb_vector),
         ._1000BTtransmit (_1000BTtransmit),
-        .col             (gmii.col)
+     // .col             (gmii.col)
+        .col             ()
     );
     
 
@@ -77,15 +79,21 @@ module pcs_1000base_t_top (
     );
     
 
-    // Phase 5: Carrier Sense Function
-    /*
-    pcs_carrier_sense u_pcs_crs (
-        .clk             (gmii.gtx_clk), // or asynchronous depending on implementation
-        .reset_n         (reset_n),
+    // =========================================================================
+    // Control & Status (Phase 5)
+    // =========================================================================
+    pcs_reset_controller u_pcs_reset_ctrl (
+        .clk          (gmii.gtx_clk),
+        .reset_n      (reset_n),
+        .sw_reset_req (sw_reset_req),
+        .pcs_reset    (pcs_reset)
+    );
+    
+    pcs_carrier_sense u_pcs_carrier_sense (
         ._1000BTtransmit (_1000BTtransmit),
         ._1000BTreceive  (_1000BTreceive),
-        .crs_out         (gmii.crs)
+        .crs             (gmii.crs),
+        .col             (gmii.col)
     );
-    */
 
 endmodule

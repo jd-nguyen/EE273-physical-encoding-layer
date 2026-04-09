@@ -1,35 +1,5 @@
 Time resolution is 1 ps
 Starting PCS Datapath Loopback Simulation...
 Transmitting GMII Frame...
-Error: DATA MISMATCH! Time: 196000 | Expected: 55 | Received: d5
-Time: 196 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 204000 | Expected: 55 | Received: aa
-Time: 204 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 212000 | Expected: 55 | Received: bb
-Time: 212 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 220000 | Expected: d5 | Received: cc
-Time: 220 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 228000 | Expected: aa | Received: dd
-Time: 228 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 236000 | Expected: bb | Received: dd
-Time: 236 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 244000 | Expected: cc | Received: ee
-Time: 244 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 252000 | Expected: dd | Received: aa
-Time: 252 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 268000 | Expected: ee | Received: bb
-Time: 268 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 276000 | Expected: aa | Received: ee
-Time: 276 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 284000 | Expected: dd | Received: ee
-Time: 284 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 292000 | Expected: bb | Received: ff
-Time: 292 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 300000 | Expected: ee | Received: c0
-Time: 300 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 308000 | Expected: ee | Received: 6d
-Time: 308 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
-Error: DATA MISMATCH! Time: 316000 | Expected: ff | Received: 05
-Time: 316 ns  Iteration: 0  Process: /tb_pcs_loopback/Always100_29  Scope: tb_pcs_loopback  File: E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv Line: 103
 Simulation Complete. Check waveform and console for mismatches.
-$finish called at time : 484 ns : File "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv" Line 167
+$finish called at time : 420 ns : File "E:/Vivado Projects/pcs/pcs.srcs/sim_1/new/tb_pcs_loopback.sv" Line 157
