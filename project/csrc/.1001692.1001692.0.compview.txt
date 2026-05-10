@@ -1,0 +1,5 @@
+{"vcs1":{"timestamp_begin":1778374007.682123661, "rt":0.25, "ut":0.06, "st":0.03}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1778374007.367015378}
+{"VCS_COMP_START_TIME": 1778374007.367015378}
+{"VCS_COMP_END_TIME": 1778374007.984402483}
+{"VCS_USER_OPTIONS": "-sverilog -timescale=1ns/1ns +vpi +define+UVM_OBJECT_MUST_HAVE_CONSTRUCTOR +incdir+/home/morris/uvm-1.2/src /home/morris/uvm-1.2/src/uvm.sv /home/morris/uvm-1.2/src/dpi/uvm_dpi.cc -CFLAGS -DVCS gmii_if.sv dut_if.sv pcs_sym_table_pkg.sv gmii_tx_pkg.sv DUTS26_0.sv pcs_tx_pipeline.sv pcs_tx_fsm.sv pcs_tx_enable.sv pcs_lpi_request.sv pcs_tx_top.sv tb_top.sv"}

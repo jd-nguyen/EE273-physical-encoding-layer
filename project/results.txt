@@ -1,0 +1,89 @@
+
+Warning-[LNX_OS_VERUN] Unsupported Linux version
+  Linux version 'Red Hat Enterprise Linux release 9.6 (Plow)' is not supported
+  on 'x86_64' officially, assuming linux compatibility by default. Set 
+  VCS_ARCH_OVERRIDE to linux or suse32 to override.
+  Please refer to release notes for information on supported platforms.
+
+                         Chronologic VCS (TM)
+         Version U-2023.03-SP2-8 -- Sat May  9 17:46:47 2026
+
+                    Copyright (c) 1991 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+The design hasn't changed and need not be recompiled. 
+If you really want to, delete file simv.daidir/.vcs.timestamp and
+run VCS again.
+
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid re-execution or '-suppress=ASLR_DETECTED_INFO' to suppress this message.
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version U-2023.03-SP2-8; Runtime version U-2023.03-SP2-8;  May  9 17:46 2026
+UVM_INFO /home/morris/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test gmii_test...
+UVM_INFO gmii_scoreboard.sv(52) @ 116: uvm_test_top.env.scb [SCB] Scoreboard comparison started
+UVM_INFO /home/morris/uvm-1.2/src/base/uvm_objection.svh(1270) @ 176196: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO gmii_scoreboard.sv(123) @ 176196: uvm_test_top.env.scb [SCB] ============================================================
+UVM_INFO gmii_scoreboard.sv(124) @ 176196: uvm_test_top.env.scb [SCB]   SCOREBOARD SUMMARY
+UVM_INFO gmii_scoreboard.sv(125) @ 176196: uvm_test_top.env.scb [SCB] ============================================================
+UVM_INFO gmii_scoreboard.sv(126) @ 176196: uvm_test_top.env.scb [SCB]   Cycles compared:    22008
+UVM_INFO gmii_scoreboard.sv(127) @ 176196: uvm_test_top.env.scb [SCB]   Total mismatches:   0
+UVM_INFO gmii_scoreboard.sv(128) @ 176196: uvm_test_top.env.scb [SCB]   Transactions (tx_en=1): 2024
+UVM_INFO gmii_scoreboard.sv(130) @ 176196: uvm_test_top.env.scb [SCB]   Match rate: 100.00%
+UVM_INFO gmii_scoreboard.sv(138) @ 176196: uvm_test_top.env.scb [SCB]   RESULT: PASS
+UVM_INFO gmii_scoreboard.sv(141) @ 176196: uvm_test_top.env.scb [SCB] ============================================================
+UVM_INFO /home/morris/uvm-1.2/src/base/uvm_report_server.svh(847) @ 176196: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   13
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[SCB]    10
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+
+$finish called from file "/home/morris/uvm-1.2/src/base/uvm_root.svh", line 517.
+$finish at simulation time               176196
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 176196 ns
+CPU Time:      1.430 seconds;       Data structure size:   0.1Mb
+Sat May  9 17:46:49 2026

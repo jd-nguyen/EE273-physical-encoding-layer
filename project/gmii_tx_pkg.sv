@@ -2,7 +2,6 @@ package gmii_tx_pkg;
 	import uvm_pkg::*;
 	`include "uvm_macros.svh"
 
-
 	// sequences ===========
 	`include "gmii_items.sv"
 	`include "gmii_seq.sv"

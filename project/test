@@ -1,0 +1,13 @@
+#!/usr/bin/csh
+
+source /apps/design_environment.csh
+setenv UVM_HOME /home/morris/uvm-1.2
+vcs -sverilog -timescale=1ns/1ns +vpi \
+    +define+UVM_OBJECT_MUST_HAVE_CONSTRUCTOR \
+    +incdir+${UVM_HOME}/src ${UVM_HOME}/src/uvm.sv \
+    ${UVM_HOME}/src/dpi/uvm_dpi.cc -CFLAGS -DVCS \
+    pcs_sym_table_pkg.sv dut_if.sv gmii_if.sv \
+    pcs_tx_pipeline.sv pcs_tx_fsm.sv pcs_tx_enable.sv \
+    pcs_lpi_request.sv pcs_tx_top.sv DUTS26_0.sv \
+    gmii_tx_pkg.sv tb_top.sv \
+    -o pcs_sim && ./simv

@@ -1,176 +1,143 @@
-// gmii_scoreboard.sv
-`uvm_analysis_imp_decl(_gmii)
-`uvm_analysis_imp_decl(_pma)
-
 class gmii_scoreboard extends uvm_scoreboard;
     `uvm_component_utils(gmii_scoreboard)
 
-    // -------------------------------------------------------------------------
-    // TLM Interfaces (Analysis Exports and FIFOs)
-    // -------------------------------------------------------------------------
-    // We use FIFOs because the GMII input and PMA output happen on different 
-    // clock cycles due to the RTL pipeline latency. FIFOs safely buffer them.
-    uvm_tlm_analysis_fifo #(gmii_items)    gmii_fifo;
-    uvm_tlm_analysis_fifo #(pma_symb_item) pma_fifo;
+    uvm_analysis_imp #(gmii_items, gmii_scoreboard) mon_imp;
 
-    // Analysis Implementations to connect to the Monitors
-    uvm_analysis_imp_gmii #(gmii_items, gmii_scoreboard)    mon_imp_gmii;
-    uvm_analysis_imp_pma  #(pma_symb_item, gmii_scoreboard) mon_imp_pma;
+    virtual dut_if dut_vif;
 
-    // -------------------------------------------------------------------------
-    // Internal State Variables (For the Predictor)
-    // -------------------------------------------------------------------------
-    int byte_count;      // Tracks where we are in the frame to inject SSDs
-    logic [32:0] scr_tx; // Software replica of the Master LFSR
+    // counters
+    int total_compared;
+    int total_mismatches;
+    int mismatch_a, mismatch_b, mismatch_c, mismatch_d;
+    int transactions_received;
+    int first_mismatch_cycle;
 
-    // Statistics
-    int match_count;
-    int error_count;
+    // max mismatches
+    localparam int MAX_LOG = 50;
+
+    // 1-cycle delayed reference signals (to satisfy prof DUT)
+    logic signed [2:0] ref_a_d1, ref_b_d1, ref_c_d1, ref_d_d1;
+    logic              ref_valid; 
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
+        mon_imp = new("mon_imp", this);
     endfunction
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        gmii_fifo    = new("gmii_fifo", this);
-        pma_fifo     = new("pma_fifo", this);
-        mon_imp_gmii = new("mon_imp_gmii", this);
-        mon_imp_pma  = new("mon_imp_pma", this);
-        
-        byte_count  = 0;
-        match_count = 0;
-        error_count = 0;
-        scr_tx      = 33'h1_FFFF_FFFF; // Master LFSR reset value
+
+        if (!uvm_config_db#(virtual dut_if)::get(this, "", "dut_vif", dut_vif))
+            `uvm_fatal("SCB", "DUT observation interface not found in config_db")
+
+        total_compared      = 0;
+        total_mismatches    = 0;
+        mismatch_a          = 0;
+        mismatch_b          = 0;
+        mismatch_c          = 0;
+        mismatch_d          = 0;
+        transactions_received = 0;
+        first_mismatch_cycle = -1;
     endfunction
 
-    // -------------------------------------------------------------------------
-    // Write Functions (Called automatically by the Monitors)
-    // -------------------------------------------------------------------------
-    virtual function void write_gmii(gmii_items tr);
-        gmii_fifo.try_put(tr);
+    function void write(gmii_items item);
+        transactions_received++;
     endfunction
 
-    virtual function void write_pma(pma_symb_item tr);
-        pma_fifo.try_put(tr);
-    endfunction
-
-    // -------------------------------------------------------------------------
-    // Main Checking Loop
-    // -------------------------------------------------------------------------
+    // main comparison
     task run_phase(uvm_phase phase);
-        gmii_items    gmii_tx;
-        pma_symb_item pma_act;
-        pma_symb_item pma_exp;
+        @(negedge dut_vif.reset);
+        repeat(5) @(posedge dut_vif.clk);
 
+        `uvm_info("SCB", "Scoreboard comparison started", UVM_LOW)
+
+        // prime the delay pipeline
+        @(posedge dut_vif.clk);
+        #1;
+        ref_a_d1  = dut_vif.ref_a;
+        ref_b_d1  = dut_vif.ref_b;
+        ref_c_d1  = dut_vif.ref_c;
+        ref_d_d1  = dut_vif.ref_d;
+        ref_valid = 1'b1;
+
+        // comparison loop
         forever begin
-            // Wait until we have BOTH an input from GMII and an output from PMA
-            gmii_fifo.get(gmii_tx);
-            pma_fifo.get(pma_act);
+            @(posedge dut_vif.clk);
+            #1; 
 
-            // 1. Run the GMII data through our software predictor
-            pma_exp = predict_symbol(gmii_tx);
+            begin
+                automatic logic signed [2:0] dut_a, dut_b, dut_c, dut_d;
+                automatic logic signed [2:0] ref_a_now, ref_b_now, ref_c_now, ref_d_now;
+                automatic logic match_a, match_b, match_c, match_d, all_match;
 
-            // 2. Compare the prediction against the actual RTL output
-            if (pma_exp.compare(pma_act)) begin
-                match_count++;
-                `uvm_info("SCB_MATCH", $sformatf("Data matched! Expected A:%0d B:%0d C:%0d D:%0d", 
-                          pma_exp.A, pma_exp.B, pma_exp.C, pma_exp.D), UVM_HIGH)
-            end else begin
-                error_count++;
-                `uvm_error("SCB_MISMATCH", $sformatf(
-                    "Byte #%0d | TXD: %h\nEXPECTED: A:%0d B:%0d C:%0d D:%0d\nACTUAL:   A:%0d B:%0d C:%0d D:%0d", 
-                    byte_count, gmii_tx.txd, 
-                    pma_exp.A, pma_exp.B, pma_exp.C, pma_exp.D,
-                    pma_act.A, pma_act.B, pma_act.C, pma_act.D))
-            end
+                dut_a = signed'(dut_vif.dout[3]);
+                dut_b = signed'(dut_vif.dout[2]);
+                dut_c = signed'(dut_vif.dout[1]);
+                dut_d = signed'(dut_vif.dout[0]);
 
-            // Reset byte count if tx_en drops
-            if (!gmii_tx.tx_en) begin
-                byte_count = 0;
+                ref_a_now = dut_vif.ref_a;
+                ref_b_now = dut_vif.ref_b;
+                ref_c_now = dut_vif.ref_c;
+                ref_d_now = dut_vif.ref_d;
+
+                // compare DUT against delayed ref
+                match_a = (dut_a == ref_a_d1);
+                match_b = (dut_b == ref_b_d1);
+                match_c = (dut_c == ref_c_d1);
+                match_d = (dut_d == ref_d_d1);
+                all_match = match_a && match_b && match_c && match_d;
+
+                total_compared++;
+
+                if (!all_match) begin
+                    total_mismatches++;
+                    if (!match_a) mismatch_a++;
+                    if (!match_b) mismatch_b++;
+                    if (!match_c) mismatch_c++;
+                    if (!match_d) mismatch_d++;
+
+                    if (first_mismatch_cycle == -1)
+                        first_mismatch_cycle = total_compared;
+
+                    if (total_mismatches <= MAX_LOG) begin
+                        `uvm_error("SCB", $sformatf(
+                            "MISMATCH #%0d cycle %0d: DUT=(%0d,%0d,%0d,%0d) REF_d1=(%0d,%0d,%0d,%0d) Diff:%s%s%s%s",
+                            total_mismatches, total_compared,
+                            dut_a, dut_b, dut_c, dut_d,
+                            ref_a_d1, ref_b_d1, ref_c_d1, ref_d_d1,
+                            match_a ? "" : " A", match_b ? "" : " B",
+                            match_c ? "" : " C", match_d ? "" : " D"))
+                    end
+                end
+
+                // shift pipeline
+                ref_a_d1 = ref_a_now;
+                ref_b_d1 = ref_b_now;
+                ref_c_d1 = ref_c_now;
+                ref_d_d1 = ref_d_now;
             end
         end
     endtask
 
-    // -------------------------------------------------------------------------
-    // The Reference Model (Software Predictor)
-    // -------------------------------------------------------------------------
-    virtual function pma_symb_item predict_symbol(gmii_items tx);
-        pma_symb_item exp = pma_symb_item::type_id::create("exp");
-        logic [7:0] sc_n;
-        logic [8:0] sd_n;
-        
-        if (tx.tx_en) begin
-            byte_count++;
-            
-            // Handle the Protocol Overrides (SSD1 and SSD2)
-            if (byte_count == 1) begin
-                exp.A =  2; exp.B =  2; exp.C =  2; exp.D =  2; // SSD1
-                advance_lfsr(); // LFSR still shifts during control symbols
-                return exp;
-            end
-            else if (byte_count == 2) begin
-                exp.A =  2; exp.B =  2; exp.C =  2; exp.D = -2; // SSD2
-                advance_lfsr(); 
-                return exp;
-            end
-            
-            // Standard Data Payload Encoding
-            // 1. Generate Scrambler Bits (Sc_n) from current LFSR state
-            sc_n = {scr_tx[20], scr_tx[19], scr_tx[18], scr_tx[17], 
-                    scr_tx[16], scr_tx[15], scr_tx[14], scr_tx[13]}; 
-            
-            // 2. Convolutional Math (Sd_n = Sc_n ^ TXD)
-            sd_n[7:0] = sc_n ^ tx.txd;
-            sd_n[8]   = 1'b0; // Simplified for tx_en active state
-            
-            // 3. 8B1Q4 Mapping (Simplified Example for Scoreboard)
-            // In a full implementation, you would port your entire Table 40-1/40-2 logic here.
-            // For now, we will map a known subset or call a dedicated mapping function.
-            map_8b1q4(sd_n, exp);
-            
-            // 4. Sign Reversal
-            // Multiply expected symbols by software-generated Sg_n bits
-            
-            // 5. Advance the software LFSR for the next clock cycle
-            advance_lfsr();
-            
-        end else begin
-            // If tx_en is low, expect IDLE symbols (0,0,0,0)
-            exp.A = 0; exp.B = 0; exp.C = 0; exp.D = 0;
-            advance_lfsr();
-        end
-        
-        return exp;
-    endfunction
-
-    // Helper: Software LFSR Advance
-    function void advance_lfsr();
-        logic next_bit;
-        next_bit = scr_tx[12] ^ scr_tx[32]; // Master polynomial
-        scr_tx = {scr_tx[31:0], next_bit};
-    endfunction
-    
-    // Helper: 8B1Q4 Mapper
-    function void map_8b1q4(logic [8:0] sdn, pma_symb_item sym);
-        // Copy the SystemVerilog logic from your pcs_symbol_mapper here
-        // to strictly predict the A, B, C, D output based on the 9-bit sdn.
-        // ...
-    endfunction
-
-    // -------------------------------------------------------------------------
-    // Report Phase
-    // -------------------------------------------------------------------------
     function void report_phase(uvm_phase phase);
-        `uvm_info("SCB_REPORT", "========================================", UVM_NONE)
-        `uvm_info("SCB_REPORT", $sformatf("Total Matches: %0d", match_count), UVM_NONE)
-        `uvm_info("SCB_REPORT", $sformatf("Total Errors:  %0d", error_count), UVM_NONE)
-        `uvm_info("SCB_REPORT", "========================================", UVM_NONE)
-        
-        if (error_count > 0)
-            `uvm_error("SCB_FAIL", "Test finished with mismatches!")
+        `uvm_info("SCB", "============================================================", UVM_LOW)
+        `uvm_info("SCB", "  SCOREBOARD SUMMARY", UVM_LOW)
+        `uvm_info("SCB", "============================================================", UVM_LOW)
+        `uvm_info("SCB", $sformatf("  Cycles compared:    %0d", total_compared), UVM_LOW)
+        `uvm_info("SCB", $sformatf("  Total mismatches:   %0d", total_mismatches), UVM_LOW)
+        `uvm_info("SCB", $sformatf("  Transactions (tx_en=1): %0d", transactions_received), UVM_LOW)
+        if (total_compared > 0)
+            `uvm_info("SCB", $sformatf("  Match rate: %0.2f%%",
+                100.0 * (total_compared - total_mismatches) / total_compared), UVM_LOW)
+        if (total_mismatches > 0) begin
+            `uvm_info("SCB", $sformatf("  A: %0d  B: %0d  C: %0d  D: %0d",
+                mismatch_a, mismatch_b, mismatch_c, mismatch_d), UVM_LOW)
+            `uvm_info("SCB", $sformatf("  First mismatch: cycle %0d", first_mismatch_cycle), UVM_LOW)
+        end
+        if (total_mismatches == 0)
+            `uvm_info("SCB", "  RESULT: PASS", UVM_LOW)
         else
-            `uvm_info("SCB_PASS", "All transmitted data successfully matched!", UVM_NONE)
+            `uvm_error("SCB", "  RESULT: FAIL")
+        `uvm_info("SCB", "============================================================", UVM_LOW)
     endfunction
-
 endclass

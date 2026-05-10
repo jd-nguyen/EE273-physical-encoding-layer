@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1778371637.415002443, "rt":6.15, "ut":3.90, "st":0.15}}
+{"vcselab":{"timestamp_begin":1778371643.614566259, "rt":1.07, "ut":0.20, "st":0.06}}
+{"link":{"timestamp_begin":1778371644.736996835, "rt":0.79, "ut":0.21, "st":0.12}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1778371637.017769398}
+{"VCS_COMP_START_TIME": 1778371637.017769398}
+{"VCS_COMP_END_TIME": 1778371645.678727937}
+{"VCS_USER_OPTIONS": "-sverilog -timescale=1ns/1ns +vpi +define+UVM_OBJECT_MUST_HAVE_CONSTRUCTOR +incdir+/home/morris/uvm-1.2/src /home/morris/uvm-1.2/src/uvm.sv /home/morris/uvm-1.2/src/dpi/uvm_dpi.cc -CFLAGS -DVCS pcs_sym_table_pkg.sv dut_if.sv gmii_if.sv pcs_tx_pipeline.sv pcs_tx_fsm.sv pcs_tx_enable.sv pcs_lpi_request.sv pcs_tx_top.sv DUTS26_0.sv gmii_tx_pkg.sv tb_top.sv -o pcs_sim"}
+{"vcs1": {"peak_mem": 287896}}
+{"vcselab": {"peak_mem": 156540}}
